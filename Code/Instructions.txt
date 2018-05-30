@@ -1,0 +1,46 @@
+Single Driver Code
+
+To compile:
+
+   make sdriver
+
+To run:
+  ./comp_sim_exp <random seed> <chromosome> <driver location> <heterozygote fitness> <homozygote resistant fitness> <replicate index 1> <replicate index 2>
+
+The homozygote susceptible fitness is here equal to 1.
+
+Replicate datasets are output with the directory names SetX for values of x between the two replicate indices e.g. indices of 12 15 would give {Set12,Set13,Set14}.  The driver location is given according to an index of polymorphic sites in the chromosome.
+
+Output files:
+
+Each SetX directory contains four files FreqsY.out for Y in {1,2,3,4}, representing the datapoints from the experiment.  These have the format:
+
+<Index> <Genome position> <#Variant alleles> <Read depth> <Inferred frequency> <Likelihood>
+
+The file Log.out reports a total log likelihood for the model.
+
+Each replicate produces the files DataY.out for Y in {1,2,3,4}.  These give the positions of crossover events in the simulated population at each time point.  The value -1 is used to distinguish the parental strain at the start of the chromosome.  By default these files are not copied to the SetX directories, though this can be straightforwardly achieved if required.
+
+Alternative
+  
+  make sdriver_wrs
+
+Identical in function but for the WRS cross
+
+
+Two Driver Code
+
+To compile: 
+  make tdriver
+
+To run:
+  ./comp_sim_exp_td <random seed> <chromosome> <driver location 1> <driver location 2> <fitness 1> <fitness 2> <replicates>
+
+Each fitness in this case gives the fitness of the genotype which is homozygous for the respective resistant allele, and homozygous forthe alternative susceptible allele.  Homozygous fitnesses are calculated according to an additive model.
+
+Output files are produced as for the single driver model.  Directories SetX are produces beginning at Set1, according to the number of replicates requested.
+
+Alternative:
+  
+  make tdriver_wrs
+
