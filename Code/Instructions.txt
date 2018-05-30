@@ -1,3 +1,16 @@
+Single Locus Code
+
+To compile:
+
+  make slocus
+  
+To run:
+  ./comp_sim <strain> <freq>
+  
+Here strain = 0 indicates the WRS strain while strain = 1 indicates the CAVR strain.  The value of freq can be set in the range 0 and 100 and indicates the number of resistant alleles in the initial population of 50 diploid females from the resistant population.
+
+The code generates four output files, BC4P1.dat, BC4P1_IVM.dat, BC4P1_S3.dat, and BC4P1_S4.dat, each describing the probability distribution of the resistant allele frequency in each of the sampled populations at each of the time points at which data were collected.
+
 Single Driver Code
 
 To compile:
